@@ -5,15 +5,24 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+* Ruby version: 2.4.4
 
-* System dependencies
+* System dependencies: Gemfile contains required dependencies. 
 
-* Configuration
+* Configuration: 
+	- This is a Rails app in API mode, to provide data for the Election Preference application.
 
-* Database creation
+* Database creation:
+	- Postgresql requires database creation, which is included in a custom rake task (below)
 
-* Database initialization
+* Database initialization:
+	- To create the database, migrate the tables, seed the database and start your local Rails server, please run: 
+	`$ rake db:dcms`
+	- see this task here: `app/lib/tasks/dcms.rake`
+
+	- To do the same steps after deployment to Heroku, please run: 
+	`$ rake db:hdcms` 
+	- see this task here: `app/lib/tasks/hdcms.rake`
 
 * How to run the test suite
 
