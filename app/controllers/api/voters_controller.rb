@@ -1,4 +1,4 @@
-class VotersController < ApplicationController
+class Api::VotersController < ApplicationController
 before_action :set_voter, only: [:show, :update, :destroy]
 
 	def index

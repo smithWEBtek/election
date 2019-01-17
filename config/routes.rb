@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
-	root 'voters#index'
-  resources :voters
+	root 'api/voters#index'
+	namespace :api do 
+		resources :voters
+	end
 end
