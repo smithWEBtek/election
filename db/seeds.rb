@@ -1,35 +1,29 @@
-require 'date'
-
-def load_city_of_boston
-	csv_text = File.read(Rails.root.join('lib', 'city_of_boston.csv'))
+def load_voters
+	csv_text = File.read(Rails.root.join('lib', 'voters.csv'))
 	csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
 	csv.each do |row|
-		 
-		addr = Address.new(
-			lat: row["LAT"],
-			lng: row["LNG"],
-			number: row["NUMBER"],
-			street: row["STREET"],
-			unit: row["UNIT"],
-			city: row["CITY"],
-			district: row["DISTRICT"],
-			region: row["REGION"],
-			zipcode: row["ZIPCODE"]
+		voter = Voter.new(
+			first_name: row["first_name"],
+			last_name: row["last_name"],
+			email: row["email"],
+			gender: row["gender"],
+			party: row["party"],
+			registered: row["registered"]
 		)
-		addr.save
+		voter.save
 		print '.'
 	end
 end
  
 def truncate_database
-	puts 'truncate_addresses_table ------------------------------------'
-	Address.all.each{|a| a.delete}
-	ActiveRecord::Base.connection.reset_pk_sequence!('addresses')
+	puts 'truncate_voters_table ------------------------------------'
+	Voter.all.each{|v| v.delete}
+	ActiveRecord::Base.connection.reset_pk_sequence!('voters')
 end
 
 def main
 	truncate_database
-	load_city_of_boston
+	load_voters
 end
 
 main
