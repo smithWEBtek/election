@@ -6,9 +6,18 @@ def load_voters
 			first_name: row["first_name"],
 			last_name: row["last_name"],
 			email: row["email"],
+			phone: row["phone"],
 			gender: row["gender"],
+			age: row["age"],
 			party: row["party"],
-			registered: row["registered"]
+			registered: row["registered"],
+			vote_preference: row["vote_preference"],
+			street_number: row["street_number"],
+			street_name: row["street_name"],
+			unit: row["unit"],
+			city: row["city"],
+			state: row["state"],
+			postal_code: row["postal_code"]
 		)
 		voter.save
 		print '.'

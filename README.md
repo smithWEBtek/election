@@ -25,6 +25,7 @@ Things you may want to cover:
 	- see this task here: `app/lib/tasks/hdcms.rake`
 
 * How to run the test suite
+	- Currently there is not a test suite
 
 * Services (job queues, cache servers, search engines, etc.)
 
